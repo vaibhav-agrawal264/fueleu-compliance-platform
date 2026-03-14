@@ -1,6 +1,7 @@
 import { useState } from "react"
 import RoutesPage from "./adapters/ui/pages/RoutesPage"
 import ComparePage from "./adapters/ui/pages/ComparePage"
+import BankingPage from "./adapters/ui/pages/BankingPage"
 
 function App() {
 
@@ -44,7 +45,7 @@ function App() {
 
           {tab === "compare" && <ComparePage />}
 
-          {tab === "banking" && <div>Banking tab coming next</div>}
+          {tab === "banking" && <BankingPage />}
 
           {tab === "pooling" && <div>Pooling tab coming next</div>}
 
