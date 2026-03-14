@@ -5,6 +5,7 @@ import { comparisonController } from "../../adapters/inbound/http/comparisonCont
 import { setBaselineController } from "../../adapters/inbound/http/setBaselineController"
 import { complianceController } from "../../adapters/inbound/http/complianceController"
 import { bankController, applyBankController } from "../../adapters/inbound/http/bankingController"
+import { poolController } from "../../adapters/inbound/http/poolController"
 
 const app = express()
 
@@ -25,6 +26,7 @@ app.get("/compliance/cb", complianceController)
 app.post("/banking/bank", bankController)
 app.post("/banking/apply", applyBankController)
 
+app.post("/pools", poolController)
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
