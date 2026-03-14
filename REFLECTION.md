@@ -21,3 +21,10 @@ Future improvements to this project could include:
 * Implementing authentication
 * Deploying the system to a cloud environment
 * Adding advanced data visualization for compliance metrics
+
+## Key Learnings
+
+- Applying hexagonal architecture in a full-stack project improved separation of concerns.
+- Prisma ORM simplified database interaction and schema migrations.
+- React with TypeScript enabled type-safe UI development.
+- AI tools accelerated development but still required manual validation.

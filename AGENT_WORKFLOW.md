@@ -74,3 +74,12 @@ These issues were manually corrected.
 * Separation of domain and infrastructure
 * Type-safe TypeScript development
 * Incremental development with Git commits
+
+## Development Workflow
+
+1. Designed the project structure using hexagonal architecture.
+2. Implemented backend APIs for routes, compliance balance, banking, and pooling.
+3. Created frontend React dashboard with four tabs.
+4. Integrated APIs using Axios.
+5. Added UI improvements including charts, filters, and KPI cards.
+6. Verified functionality using Postman and Prisma Studio.
