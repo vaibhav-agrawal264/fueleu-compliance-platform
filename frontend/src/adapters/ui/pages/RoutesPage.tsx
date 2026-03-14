@@ -5,13 +5,30 @@ import { getRoutes } from "../../../core/application/getRoutes"
 export default function RoutesPage() {
 
   const [routes, setRoutes] = useState<Route[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
 
   useEffect(() => {
 
     async function loadRoutes() {
 
-      const data = await getRoutes()
-      setRoutes(data)
+      try {
+
+        setLoading(true)
+
+        const data = await getRoutes()
+
+        setRoutes(data)
+
+      } catch (err) {
+
+        setError("Failed to load routes")
+
+      } finally {
+
+        setLoading(false)
+
+      }
 
     }
 
@@ -19,6 +36,37 @@ export default function RoutesPage() {
 
   }, [])
 
+  // Loading state
+  if (loading) {
+
+    return (
+
+      <div className="flex justify-center py-10">
+
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+
+      </div>
+
+    )
+
+  }
+
+  // Error state
+  if (error) {
+
+    return (
+
+      <div className="text-center py-10 text-red-500">
+
+        {error}
+
+      </div>
+
+    )
+
+  }
+
+  // Success state
   return (
 
     <div>

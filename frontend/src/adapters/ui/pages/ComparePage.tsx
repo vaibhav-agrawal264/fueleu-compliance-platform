@@ -17,9 +17,9 @@ export default function ComparePage() {
   const [baseline, setBaseline] = useState<any>(null)
   const [data, setData] = useState<Comparison[]>([])
   const chartData = data.map(r => ({
-  route: r.routeId,
-  ghg: r.ghgIntensity
-}))
+    route: r.routeId,
+    ghg: r.ghgIntensity
+  }))
   useEffect(() => {
 
     async function loadComparison() {
@@ -47,7 +47,7 @@ export default function ComparePage() {
 
         <div className="mb-4 p-4 bg-blue-50 rounded">
 
-          Baseline Route: <b>{baseline.routeId}</b>  
+          Baseline Route: <b>{baseline.routeId}</b>
           (GHG: {baseline.ghgIntensity})
 
         </div>
@@ -100,29 +100,29 @@ export default function ComparePage() {
       </table>
       <div className="mt-8">
 
-  <h3 className="text-xl font-semibold mb-4">
-    GHG Intensity Comparison
-  </h3>
+        <h3 className="text-xl font-semibold mb-4">
+          GHG Intensity Comparison
+        </h3>
 
-  <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={300}>
 
-    <BarChart data={chartData}>
+          <BarChart data={chartData}>
 
-      <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="3 3" />
 
-      <XAxis dataKey="route" />
+            <XAxis dataKey="route" />
 
-      <YAxis />
+            <YAxis />
 
-      <Tooltip />
+            <Tooltip />
 
-      <Bar dataKey="ghg" fill="#2563eb" />
+            <Bar dataKey="ghg" fill="#2563eb" />
 
-    </BarChart>
+          </BarChart>
 
-  </ResponsiveContainer>
+        </ResponsiveContainer>
 
-</div>
+      </div>
     </div>
 
   )
