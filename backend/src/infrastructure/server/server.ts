@@ -4,6 +4,7 @@ import { routesController } from "../../adapters/inbound/http/routesController";
 import { comparisonController } from "../../adapters/inbound/http/comparisonController"
 import { setBaselineController } from "../../adapters/inbound/http/setBaselineController"
 import { complianceController } from "../../adapters/inbound/http/complianceController"
+import { bankController, applyBankController } from "../../adapters/inbound/http/bankingController"
 
 const app = express()
 
@@ -20,6 +21,9 @@ app.get("/routes", routesController);
 app.get("/routes/comparison", comparisonController)
 app.post("/routes/:id/baseline", setBaselineController)
 app.get("/compliance/cb", complianceController)
+
+app.post("/banking/bank", bankController)
+app.post("/banking/apply", applyBankController)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
