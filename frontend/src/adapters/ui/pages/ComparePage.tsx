@@ -2,11 +2,24 @@ import { useEffect, useState } from "react"
 import type { Comparison } from "../../../core/domain/Comparison"
 import { getComparison } from "../../../core/application/getComparison"
 
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer
+} from "recharts"
+
 export default function ComparePage() {
 
   const [baseline, setBaseline] = useState<any>(null)
   const [data, setData] = useState<Comparison[]>([])
-
+  const chartData = data.map(r => ({
+  route: r.routeId,
+  ghg: r.ghgIntensity
+}))
   useEffect(() => {
 
     async function loadComparison() {
@@ -85,7 +98,31 @@ export default function ComparePage() {
         </tbody>
 
       </table>
+      <div className="mt-8">
 
+  <h3 className="text-xl font-semibold mb-4">
+    GHG Intensity Comparison
+  </h3>
+
+  <ResponsiveContainer width="100%" height={300}>
+
+    <BarChart data={chartData}>
+
+      <CartesianGrid strokeDasharray="3 3" />
+
+      <XAxis dataKey="route" />
+
+      <YAxis />
+
+      <Tooltip />
+
+      <Bar dataKey="ghg" fill="#2563eb" />
+
+    </BarChart>
+
+  </ResponsiveContainer>
+
+</div>
     </div>
 
   )
