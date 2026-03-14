@@ -3,6 +3,7 @@ import RoutesPage from "./adapters/ui/pages/RoutesPage"
 import ComparePage from "./adapters/ui/pages/ComparePage"
 import BankingPage from "./adapters/ui/pages/BankingPage"
 import PoolingPage from "./adapters/ui/pages/PoolingPage"
+import KpiCards from "./shared/components/KpiCards"
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         <h1 className="text-4xl font-bold mb-8 text-center">
           FuelEU Compliance Dashboard
         </h1>
-
+        <KpiCards />
         <div className="flex justify-center gap-4 mb-8">
 
           {tabs.map(t => (
